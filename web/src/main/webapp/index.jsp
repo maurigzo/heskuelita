@@ -8,9 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <form action="login" method="post">
+        <title>CURSOS.COM</title>
+        <h1>Sign In</h1>
+        <br>User:<input type="text" name="user" value=""></br>
+        <br>Password:<input type="text" name="pw" value=""></br>
+        <br><th><input type= "submit" value="login"></th>
+        <th><input type= "submit" value="Sign Up"></th></br>
+    </form>
 </head>
 <body>
-$END$
+
 </body>
 </html>
