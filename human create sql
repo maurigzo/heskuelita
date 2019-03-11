@@ -1,0 +1,19 @@
+-- Table: public.human
+
+-- DROP TABLE public.human;
+
+CREATE TABLE public.human
+(
+    email character varying(40) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(40) COLLATE pg_catalog."default" NOT NULL,
+    user_name character varying(40) COLLATE pg_catalog."default" NOT NULL,
+    id integer NOT NULL DEFAULT nextval('human_seq'::regclass),
+    CONSTRAINT human_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.human
+    OWNER to postgres;
