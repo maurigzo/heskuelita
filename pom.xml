@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
     </properties>
-    
+
     <modules>
         <module>core</module>
         <module>data</module>
@@ -39,15 +39,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!--
-          - slf4j dependencies.
-          -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.25</version>
-            <scope>compile</scope>
-        </dependency>
+
 
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -77,40 +69,14 @@
             <scope>compile</scope>
         </dependency>
 
-        <!--
-           - Hibernate dependencies.
-           -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>4.3.11.Final</version>
-            <scope>compile</scope>
-        </dependency>
-
+        <!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
         <dependency>
             <groupId>postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>9.1-901-1.jdbc4</version>
-            <scope>compile</scope>
         </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.9</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <!--
-           - Test dependencies.
-           -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.1.0</version>
-            <scope>test</scope>
-        </dependency>
 
     </dependencies>
- 
+
 </project>

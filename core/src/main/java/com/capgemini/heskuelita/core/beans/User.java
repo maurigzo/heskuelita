@@ -1,16 +1,16 @@
 package com.capgemini.heskuelita.core.beans;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
-import lombok.*;
 
 @Data
 @NoArgsConstructor
-public class User {
+public class User extends Person{
 
-    private String userName;
-    private String password;
-    private String email;
     private LocalDate created;
+
     private LocalDate updated;
 
 }
