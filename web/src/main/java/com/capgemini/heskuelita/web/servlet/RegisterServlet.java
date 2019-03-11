@@ -16,14 +16,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
 
-@WebServlet ("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet ("/register")
+public class RegisterServlet extends HttpServlet {
 
 
     private ISecurityService securityService;
 
 
-    public LoginServlet () {
+    public RegisterServlet () {
 
         super ();
     }
@@ -50,10 +50,11 @@ public class LoginServlet extends HttpServlet {
         User user = new User ();
         user.setUserName (req.getParameter ("user"));
         user.setPassword (req.getParameter ("pwd"));
+        user.setEmail (req.getParameter ("email"));
 
         try {
 
-            this.securityService.login (user);
+            this.securityService.register (user);
 
             HttpSession session = req.getSession ();
             session.setAttribute ("user", user);
