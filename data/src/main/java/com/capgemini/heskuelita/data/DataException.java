@@ -1,5 +1,5 @@
 
-package java.com.capgemini.heskuelita.data;
+package com.capgemini.heskuelita.data;
 
 
 public class DataException extends RuntimeException {

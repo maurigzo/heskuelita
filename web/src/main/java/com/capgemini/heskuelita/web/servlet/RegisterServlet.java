@@ -18,7 +18,7 @@ import javax.servlet.http.*;
 
 @WebServlet ("/register")
 public class RegisterServlet extends HttpServlet {
-
+/*
 
     private ISecurityService securityService;
 
@@ -66,4 +66,5 @@ public class RegisterServlet extends HttpServlet {
             resp.sendRedirect ("err.jsp");
         }
     }
+*/
 }

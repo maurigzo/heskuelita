@@ -1,20 +1,31 @@
 
 package com.capgemini.heskuelita.test;
 
-import com.capgemini.heskuelita.entity.Human;
+import com.capgemini.heskuelita.entity.Account;
 import com.capgemini.util.HibernateUtil;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-
 import org.hibernate.Transaction;
 
 import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.junit.jupiter.api.*;
 
 public class HibernateTest {
 
@@ -35,7 +46,6 @@ public class HibernateTest {
 
         sessionFactory = HibernateUtil.getSessionFactory ();
     }
-
     @AfterAll
     public static void destroy () {
 
@@ -59,17 +69,13 @@ public class HibernateTest {
 
             // Set the data to save.
             logger.info("Creating values to insert...");
-            Human[] values = new Human[]{
+            Account[] values = new Account[]{
 
-                    new Human ("Homer Simpson", "Test", "email"),
-                    new Human ("Marge Simpson", "Test", "email"),
-                    new Human ("Bart Simpson", "Test", "email"),
-                    new Human ("Lisa Simpson", "Test", "email"),
-                    new Human ("Maggie Simpson", "Test", "email")
+                   new Account ("Homer Simpson", "Test", "email")
             };
 
             // Save the data.
-            for (Human e : values) {
+            for (Account e : values) {
 
                 logger.info (String.format ("Saving value %s", e.getUser_name ()));
                 session.save(e);
@@ -92,7 +98,7 @@ public class HibernateTest {
     public void m2 () {
 
         Session session = null;
-        List<Human> users;
+        List<Account> users;
 
         try {
 
@@ -100,7 +106,7 @@ public class HibernateTest {
             logger.info("Getting a session...");
             session = sessionFactory.openSession ();
 
-            users = (List)session.createCriteria (Human.class).list ();
+            users = (List)session.createCriteria (Account.class).list ();
 
             logger.info ("Print all users info.");
             users.forEach ( e -> logger.info (e.getUser_name ()));
@@ -121,7 +127,7 @@ public class HibernateTest {
 
         final Session session;
         Transaction tx = null;
-        List<Human> users;
+        List<Account> users;
 
         try {
 
@@ -130,7 +136,7 @@ public class HibernateTest {
             session = sessionFactory.openSession ();
             tx = session.beginTransaction ();
 
-            users = (List)session.createCriteria (Human.class).list ();
+            users = (List)session.createCriteria (Account.class).list ();
 
             logger.info ("Print all users info.");
             users.forEach (e -> {
@@ -156,21 +162,21 @@ public class HibernateTest {
 
         final Session session;
         Transaction tx;
-        List<Human> values;
+        List<Account> values;
 
         try {
 
             logger.debug ("Delete all users.");
             session = sessionFactory.openSession ();
             tx = session.beginTransaction ();
-            values = (List)session.createQuery ("From Human").list ();
+            values = (List)session.createQuery ("From Account").list ();
 
             Assertions.assertFalse (values.isEmpty (), "There are not users found!!!");
 
             values.forEach (e -> session.delete (e));
             tx.commit ();
 
-            values = (List)session.createQuery("From Human").list ();
+            values = (List)session.createQuery("From Account").list ();
             Assertions.assertTrue (values.isEmpty (), "There are users found!!!");
 
         } catch (Exception e) {
@@ -179,4 +185,6 @@ public class HibernateTest {
             Assertions.assertFalse (Boolean.TRUE, "Problems executing the test.");
         }
     }
+
+
 }

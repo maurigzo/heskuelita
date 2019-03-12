@@ -1,7 +1,7 @@
 package com.capgemini.heskuelita.service.impl;
 
 
-import com.capgemini.heskuelita.core.beans.User;
+import com.capgemini.heskuelita.entity.Account;
 import com.capgemini.heskuelita.data.IUserDao;
 import com.capgemini.heskuelita.service.ISecurityService;
 import com.capgemini.heskuelita.service.SecurityException;
@@ -21,26 +21,28 @@ public class SecurityServiceImpl implements ISecurityService{
 
 
     @Override
-    public void login(User user) throws SecurityException {
+    public void login(Account account) throws SecurityException {
 
         try {
 
-            this.userDao.login(user.getUserName(), user.getPassword());
+            account=this.userDao.login(account.getUser_name(), account.getPassword());
         } catch (Exception e) {
 
             throw new SecurityException(e);
         }
     }
 
+    /*
     @Override
-    public void register(User user) throws SecurityException{
+    public void register(Account account) throws SecurityException{
 
         try{
-            this.userDao.register(user.userName,user.password,user.email);
+            this.userDao.register(account.getUser_name, account.getPassword, account.getEmail);
         } catch (Exception e) {
 
             throw new SecurityException(e);
         }
 
     }
+    */
 }
