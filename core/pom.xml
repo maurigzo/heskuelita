@@ -21,18 +21,6 @@
 
     <dependencies>
 
-            <dependency>
-                <groupId>com.capgemini.heskuelita</groupId>
-                <artifactId>data</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-
-        <dependency>
-            <groupId>com.capgemini.heskuelita</groupId>
-            <artifactId>service</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
