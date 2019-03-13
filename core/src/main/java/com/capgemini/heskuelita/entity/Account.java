@@ -6,17 +6,17 @@ import org.hibernate.annotations.Fetch;
 import javax.persistence.*;
 
 @Data
-@Entity(name =  "Account")
-@Table(name ="account")
-public class Account {
+@Entity(name =  "Human")
+@Table(name = "human")
+public class Human {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO, generator = "account_seq")
-    @SequenceGenerator(name = "account_seq", sequenceName = "account_seq")
+    @GeneratedValue (strategy = GenerationType.AUTO, generator = "human_seq")
+    @SequenceGenerator(name = "human_seq", sequenceName = "human_seq")
     @Column (name="id", nullable=false, unique=true)
-    private Long id;
+    private int id;
 
-    @Column (name="user_name", length = 40, nullable=false)
+    @Column (name="user_name", length = 40, nullable=false, unique=true)
     private String user_name;
 
     @Column(name="password", length=40, nullable=false)
@@ -26,12 +26,14 @@ public class Account {
     private String email;
 
 
-    public Account() {
-    }
 
-    public Account(String user_name, String password, String email) {
+
+    public Human(String user_name, String password, String email) {
         this.user_name = user_name;
         this.password = password;
         this.email = email;
+    }
+
+    public Human() {
     }
 }

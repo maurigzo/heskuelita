@@ -1,10 +1,10 @@
 package com.capgemini.heskuelita.data;
 
-import com.capgemini.heskuelita.entity.Account;
+import com.capgemini.heskuelita.core.beans.User;
 
 public interface IUserDao {
 
-    Account login (String userName, String password);
+    User login (String user_name, String password);
 
-   // Account register(String userName, String password, String email);
+    User register(String user_name, String password, String email);
 }

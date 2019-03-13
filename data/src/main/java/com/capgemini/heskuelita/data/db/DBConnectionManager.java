@@ -1,11 +1,11 @@
 
-package com.capgemini.heskuelita.data.db;
+package java.com.capgemini.heskuelita.data.db;
 
 
 import java.sql.Connection;
 
-import com.capgemini.heskuelita.data.DataException;
 import org.apache.commons.dbcp2.BasicDataSource;
+
 
 
 public class DBConnectionManager {

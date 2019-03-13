@@ -11,8 +11,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 
-public class UserDaoJDBC  {
-/*
+public class UserDaoJDBC implements IUserDao {
+
 
     private Connection conn;
 
@@ -54,7 +54,7 @@ public class UserDaoJDBC  {
     }
 
     @Override
-    public boolean register(String userName, String password, String email){
+    public User register(String userName, String password, String email){
 
         User us;
         try{
@@ -73,6 +73,4 @@ public class UserDaoJDBC  {
 
         return us;
     }
-
-*/
 }

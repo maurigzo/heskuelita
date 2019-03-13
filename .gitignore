@@ -24,21 +24,21 @@ findbugs
 # Xcode
 #
 build/
-*.pbxuser
-!default.pbxuser
+*.pbxHuman
+!default.pbxHuman
 *.mode1v3
 !default.mode1v3
 *.mode2v3
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata
+xcHumandata
 *.xccheckout
 *.moved-aside
 DerivedData
 *.hmap
 *.ipa
-*.xcuserstate
+*.xcHumanstate
 project.xcworkspace
 
 # Android/IJ

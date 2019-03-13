@@ -20,16 +20,13 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.capgemini.heskuelita</groupId>
-            <artifactId>core</artifactId>
-            <version>1.0.0</version>
-        </dependency>
+
         <dependency>
             <groupId>com.capgemini.heskuelita</groupId>
             <artifactId>data</artifactId>
             <version>1.0.0</version>
         </dependency>
+
     </dependencies>
 
     <build>

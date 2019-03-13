@@ -9,7 +9,7 @@
 
 <form action="login" method="post">
 
-    Username: <input type="text" name="user">
+    user_name: <input type="text" name="user">
     <br>
     Password: <input type="password" name="pwd">
     <br>
@@ -18,7 +18,7 @@
 
 <form action="register" method="post">
 
-    Username: <input type="text" name="user">
+    user_name: <input type="text" name="user">
     <br>
     Password: <input type="password" name="pwd">
     <br>

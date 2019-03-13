@@ -1,10 +1,9 @@
+
 package com.capgemini.heskuelita.web.servlet;
 
 import com.capgemini.heskuelita.core.beans.User;
 import com.capgemini.heskuelita.data.db.DBConnectionManager;
-import com.capgemini.heskuelita.data.impl.UserDaoHibernate;
 import com.capgemini.heskuelita.data.impl.UserDaoJDBC;
-import com.capgemini.heskuelita.entity.Account;
 import com.capgemini.heskuelita.service.ISecurityService;
 import com.capgemini.heskuelita.service.impl.SecurityServiceImpl;
 
@@ -15,6 +14,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+
 
 @WebServlet ("/login")
 public class LoginServlet extends HttpServlet {
@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 
         try {
 
-            this.securityService = new SecurityServiceImpl (new UserDaoHibernate());
+            this.securityService = new SecurityServiceImpl (new UserDaoJDBC (manager.getConnection()));
         } catch (Exception e) {
 
             throw new ServletException(e);
@@ -46,14 +46,18 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Account account = new Account();
-        account.setUser_name (req.getParameter ("user"));
-        account.setPassword (req.getParameter ("pwd"));
+
+        User user = new User ();
+        user.setUserName (req.getParameter ("user"));
+        user.setPassword (req.getParameter ("pwd"));
 
         try {
-            this.securityService.login (account);
+
+            this.securityService.login (user);
+
             HttpSession session = req.getSession ();
-            session.setAttribute ("user", account);
+            session.setAttribute ("user", user);
+
             resp.sendRedirect ("home.jsp");
 
         } catch (Exception e) {
@@ -61,5 +65,4 @@ public class LoginServlet extends HttpServlet {
             resp.sendRedirect ("err.jsp");
         }
     }
-
 }
